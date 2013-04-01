@@ -14,12 +14,12 @@ public class Solution {
 
 		for (int P = 0; P < N; P++) {
 
-			int left_sum = 0;
+			long left_sum = 0;
 			for (int i = 0; i < P; i++) {
 				left_sum += A[i];
 			}
 
-			int right_sum = 0;
+			long right_sum = 0;
 			for (int i = P + 1; i < N; i++) {
 				right_sum += A[i];
 			}

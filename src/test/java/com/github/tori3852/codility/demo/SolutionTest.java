@@ -38,4 +38,28 @@ public class SolutionTest {
 		Assert.assertEquals(1, new Solution().equi(new int[] { 0, Integer.MAX_VALUE }));
 	}
 
+	@Test
+	public void test_extreme_large_numbers() {
+		// 0, 1, 2, 3, sum[0..1]=4294967294, sum[3..3]=-2
+		Assert.assertEquals(-1, new Solution().equi(new int[] { Integer.MAX_VALUE, Integer.MAX_VALUE, 0, -2 }));
+	}
+
+	@Test
+	public void test_extreme_negative_numbers() {
+		// 0, 1, 2, sum (empty set)=0, sum[1..2]=-4294967296
+		Assert.assertEquals(1, new Solution().equi(new int[] { -Integer.MIN_VALUE, -Integer.MIN_VALUE, -Integer.MIN_VALUE }));
+	}
+
+	@Test
+	public void test_overflow_tests1() {
+		// 0, 1, 2, sum (empty set)=0, sum[1..2]=-4294967296
+		test_extreme_negative_numbers();
+	}
+
+	@Test
+	public void test_overflow_tests2() {
+		// 0, 1, sum[0..1]=-4294967296, right sum (empty set)=0
+		Assert.assertEquals(-1, new Solution().equi(new int[] { -Integer.MIN_VALUE, -Integer.MIN_VALUE }));
+	}
+ 
 }
